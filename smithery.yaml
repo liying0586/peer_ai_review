@@ -1,0 +1,58 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => {
+      const args = ["run", "peer_ai_review.py"];
+      if (config.openaiKey) {
+        args.push("--openai-key", config.openaiKey);
+      }
+      if (config.claudeKey) {
+        args.push("--claude-key", config.claudeKey);
+      }
+      if (config.geminiKey) {
+        args.push("--gemini-key", config.geminiKey);
+      }
+      if (config.deepseekKey) {
+        args.push("--deepseek-key", config.deepseekKey);
+      }
+      if (config.ollamaHost) {
+        args.push("--ollama-host", config.ollamaHost);
+      }
+      if (config.ollamaPort) {
+        args.push("--ollama-port", config.ollamaPort);
+      }
+      return { command: "uv", args };
+    }
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      openaiKey:
+        type: string
+        description: API key for OpenAI (sk-...)
+      claudeKey:
+        type: string
+        description: API key for Anthropic (sk-...)
+      geminiKey:
+        type: string
+        description: API key for Google Gemini
+      deepseekKey:
+        type: string
+        description: API key for DeepSeek
+      ollamaHost:
+        type: string
+        description: Host for Ollama server
+      ollamaPort:
+        type: string
+        description: Port for Ollama server
+  exampleConfig:
+    openaiKey: sk-REPLACE_OPENAI
+    claudeKey: sk-REPLACE_CLAUDE
+    geminiKey: REPLACE_GEMINI
+    deepseekKey: sk-REPLACE_DEEPSEEK
+    ollamaHost: localhost
+    ollamaPort: "11434"
