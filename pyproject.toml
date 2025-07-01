@@ -1,0 +1,27 @@
+# pyproject.toml
+
+[project]
+name = "peer_ai_review"
+version = "1.0.0"
+description = "a mcp tool to send your question and answer to peer AI for review and send back the review result"
+
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastmcp"
+]
+
+[project.optional-dependencies]
+openai = ["openai"]
+claude = ["anthropic"]
+gemini = ["google-generativeai"]
+ollama = ["requests"]
+deepseek = ["openai"]
+
+all = [
+    "peer_ai_review[openai]",
+    "peer_ai_review[claude]",
+    "peer_ai_review[gemini]",
+    "peer_ai_review[deepseek]",
+    "peer_ai_review[ollama]",
+]
