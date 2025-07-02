@@ -8,10 +8,9 @@ WORKDIR /app
 COPY pyproject.toml peer_ai_review.py README.md ./
 
 # Install uv and dependencies for all providers
-RUN pip install --no-cache-dir uv && \
-    pip install --no-cache-dir ".[all]"
+RUN pip install --no-cache-dir ".[all]"
 
 # Expose nothing specific (stdio server)
 
 # Default entrypoint
-ENTRYPOINT ["uv", "run", "peer_ai_review.py"]
+ENTRYPOINT ["python", "peer_ai_review.py"]
