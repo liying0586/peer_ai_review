@@ -1,4 +1,9 @@
 # Smithery configuration file: https://smithery.ai/docs/build/project-config
+runtime: "container"
+
+build:
+  dockerfile: "Dockerfile"
+  dockerBuildPath: "."
 
 startCommand:
   type: stdio
@@ -6,7 +11,7 @@ startCommand:
     # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
     |-
     (config) => {
-      const args = ["run", "peer_ai_review.py"];
+      const args = ["peer_ai_review.py"];
       if (config.openaiKey) {
         args.push("--openai-key", config.openaiKey);
       }
@@ -33,10 +38,10 @@ startCommand:
     properties:
       openaiKey:
         type: string
-        description: API key for OpenAI (sk-...)
+        description: API key for OpenAI 
       claudeKey:
         type: string
-        description: API key for Anthropic (sk-...)
+        description: API key for Anthropic 
       geminiKey:
         type: string
         description: API key for Google Gemini
@@ -50,9 +55,9 @@ startCommand:
         type: string
         description: Port for Ollama server
   exampleConfig:
-    openaiKey: sk-REPLACE_OPENAI
-    claudeKey: sk-REPLACE_CLAUDE
-    geminiKey: REPLACE_GEMINI
-    deepseekKey: sk-REPLACE_DEEPSEEK
-    ollamaHost: localhost
+    openaiKey: "sk-xxx"
+    claudeKey: "sk-ant-xxx"
+    geminiKey: "AIzaxxx"
+    deepseekKey: "sk-xxx"
+    ollamaHost: "10.0.0.10"
     ollamaPort: "11434"
