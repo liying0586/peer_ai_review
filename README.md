@@ -1,7 +1,5 @@
 # peer_ai_review
 
-[![smithery badge](https://smithery.ai/badge/@liying0586/peer_ai_review)](https://smithery.ai/server/@liying0586/peer_ai_review)
-
 A MCP tool to get AI-powered reviews for your questions and answers.
 
 This tool allows you to easily send question and answer to various leading AI models (OpenAI, Anthropic, Google Gemini, and local models via Ollama) and receive peer review result.
@@ -27,14 +25,6 @@ Python 3.12+
 Install uv
 
 # Installation
-
-### Installing via Smithery
-
-To install peer_ai_review for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@liying0586/peer_ai_review):
-
-```bash
-npx -y @smithery/cli install @liying0586/peer_ai_review --client claude
-```
 
 ### Manual Installation
 download this project and install dependencies
